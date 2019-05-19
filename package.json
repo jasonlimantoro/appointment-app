@@ -1,7 +1,7 @@
 {
-  "name": "minimal-webpack-react",
-  "version": "2.0.0",
-  "description": "Boilerplate for react and webpack",
+  "name": "appointment-app",
+  "version": "0.0.1",
+  "description": "Appointment app repository",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --open",
@@ -40,10 +40,9 @@
       "jsx"
     ]
   },
-  "repository": "https://github.com/HashemKhalifa/webpack-react-boilerplate",
-  "author": "HashemKhalifa",
+  "author": "jasonlimantoro",
   "license": "ISC",
-  "private": false,
+  "private": true,
   "engines": {
     "node": ">=8",
     "npm": ">=3"
@@ -103,7 +102,7 @@
     "eslint-watch": "5.1.2",
     "file-loader": "3.0.1",
     "html-webpack-plugin": "3.2.0",
-    "husky": "2.2.0",
+    "husky": "^2.3.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.8.0",
     "jest-css-modules-transform": "2.1.1",
