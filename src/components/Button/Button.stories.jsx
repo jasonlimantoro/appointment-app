@@ -7,7 +7,7 @@ const TEXT = {
   long: 'Some text that is very long until the button is very long',
 };
 
-storiesOf('Button', module)
+storiesOf('Component|Button', module)
   .add('basic', () => <Button ripple={false}>{TEXT.short}</Button>)
   .add('ripple', () => <Button>{TEXT.short}</Button>)
   .add('full width', () => (
