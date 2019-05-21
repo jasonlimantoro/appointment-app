@@ -15,7 +15,7 @@ const Login = () => {
             Log
           </Typography.Title>{' '}
           <Typography.Title inline>In</Typography.Title>
-          <form action="#" className="mt-40 mb-40">
+          <form action="#" className="mt-20 mb-20">
             <Input
               id="username"
               label="Username"
@@ -32,7 +32,7 @@ const Login = () => {
               inputClassName="lg:h-16 lg:text-lg"
               fullWidth
             />
-            <Button fullWidth>Submit</Button>
+            <Button fullWidth>Log In</Button>
           </form>
           <p>
             <Typography.Paragraph>
