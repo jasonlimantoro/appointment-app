@@ -1,9 +1,36 @@
-h1 {
-  @apply text-2xl;
+html {
+	@apply text-base leading-normal;
 }
+
+body {
+	@apply text-base leading-normal m-auto;
+}
+
+h1 {
+	@apply text-7xl leading-xl mt-6 mb-12;
+}
+
 h2 {
-  @apply text-xl;
+	@apply text-4.5xl leading-lg my-6;
 }
 h3 {
-  @apply text-lg;
+	@apply text-2.5xl leading-lg mt-6 mb-0;
+}
+h4 {
+	@apply text-base leading-normal mt-6 mb-0;
+}
+h5 {
+	@apply text-base leading-normal mt-6 mb-0;
+}
+
+p, ul, ol, pre, table, blockquote {
+	@apply mt-0 mb-6;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+	@apply my-0;
+}
+
+a, b, i, strong, em, small, code {
+	line-height: 0;
 }

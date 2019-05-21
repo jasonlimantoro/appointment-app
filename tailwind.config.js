@@ -11,6 +11,15 @@ module.exports = {
           dark: '#095f7d',
         },
       },
+      fontSize: {
+        '2.5xl': '1.625rem',
+        '4.5xl': '2.625rem',
+        '7xl': '4.25rem',
+      },
+      lineHeight: {
+        lg: '3rem',
+        xl: '4.5rem',
+      },
     },
   },
   variants: {},
