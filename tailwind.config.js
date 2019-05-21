@@ -20,6 +20,9 @@ module.exports = {
         lg: '3rem',
         xl: '4.5rem',
       },
+      minHeight: {
+        header: '4rem',
+      },
     },
   },
   variants: {},
