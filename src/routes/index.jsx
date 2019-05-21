@@ -4,7 +4,7 @@ import Dashboard from './Dashboard';
 import Main from './Main';
 
 export default () => (
-  <Router>
+  <Router className="h-full">
     <Main path="/*" />
     <Dashboard path="/dashboard/*" />
   </Router>
