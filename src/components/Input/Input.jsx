@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Input = ({
-  type,
   label,
   id,
   required,
@@ -11,10 +10,11 @@ const Input = ({
   fullWidth,
   labelClassName,
   inputClassName,
+  inputProps,
   ...rest
 }) => {
   return (
-    <div className="m-2">
+    <div {...rest}>
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
       <label
         htmlFor={id}
@@ -43,8 +43,7 @@ const Input = ({
             'w-full': fullWidth,
           },
         )}
-        type={type}
-        {...rest}
+        {...inputProps}
       />
       {error && <p className="text-red-500 text-sm">{error}!</p>}
     </div>
@@ -56,14 +55,14 @@ Input.propTypes = {
   label: PropTypes.string,
   required: PropTypes.bool,
   fullWidth: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'checkbox', 'radio']),
   error: PropTypes.string,
   labelClassName: PropTypes.string,
   inputClassName: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  inputProps: PropTypes.object,
 };
 
 Input.defaultProps = {
-  type: 'text',
   required: true,
   fullWidth: false,
 };

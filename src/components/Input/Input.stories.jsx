@@ -3,14 +3,22 @@ import { storiesOf } from '@storybook/react';
 import Input from '.';
 
 storiesOf('Component|Input/text', module)
-  .add('default', () => <Input label="username" placeholder="Enter username" />)
+  .add('default', () => (
+    <Input label="username" inputProps={{ placeholder: 'Enter username' }} />
+  ))
   .add('optional', () => (
-    <Input label="username" placeholder="Enter username" required={false} />
+    <Input
+      label="username"
+      inputProps={{ placeholder: 'Enter username' }}
+      required={false}
+    />
   ))
   .add('with errors', () => (
     <Input
       label="username"
-      placeholder="Enter username"
+      inputProps={{
+        placeholder: 'Enter username',
+      }}
       error="Username is taken"
     />
   ));
