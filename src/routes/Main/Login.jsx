@@ -1,6 +1,5 @@
 import React from 'react';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import { Input, Button, Typography } from '../../components';
 import banner from '../../images/america-analysis-cellphone.png';
 
 const Login = () => {
@@ -12,9 +11,10 @@ const Login = () => {
       />
       <div className="flex-1 p-4 flex flex-col items-center justify-center">
         <div className="w-1/2">
-          <h1>
-            <span className="font-bold">Log</span> in
-          </h1>
+          <Typography.Title inline className="font-bold">
+            Log
+          </Typography.Title>{' '}
+          <Typography.Title inline>In</Typography.Title>
           <form action="#" className="mt-40 mb-40">
             <Input
               id="username"
@@ -35,17 +35,16 @@ const Login = () => {
             <Button fullWidth>Submit</Button>
           </form>
           <p>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            Don't have an account? <span className="font-bold">Sign up</span>
+            <Typography.Paragraph>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              Don't have an account?{' '}
+              <Typography className="font-bold">Sign up</Typography>
+            </Typography.Paragraph>
           </p>
         </div>
       </div>
     </div>
   );
 };
-
-Login.propTypes = {};
-
-Login.defaultProps = {};
 
 export default Login;
