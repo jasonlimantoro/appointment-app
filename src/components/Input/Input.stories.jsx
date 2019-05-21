@@ -21,4 +21,16 @@ storiesOf('Component|Input/text', module)
       }}
       error="Username is taken"
     />
+  ))
+  .add('fullwidth', () => (
+    <div className="w-1/2 border-2 flex flex-col items-center border-red-500">
+      Parent Element{' '}
+      <Input
+        label="username"
+        inputProps={{
+          placeholder: 'Enter username',
+        }}
+        fullWidth
+      />
+    </div>
   ));

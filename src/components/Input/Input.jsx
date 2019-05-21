@@ -8,13 +8,14 @@ const Input = ({
   required,
   error,
   fullWidth,
+  className,
   labelClassName,
   inputClassName,
   inputProps,
   ...rest
 }) => {
   return (
-    <div {...rest}>
+    <div className={classNames(className, { 'w-full': fullWidth })} {...rest}>
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
       <label
         htmlFor={id}
@@ -56,7 +57,18 @@ Input.propTypes = {
   required: PropTypes.bool,
   fullWidth: PropTypes.bool,
   error: PropTypes.string,
+  /**
+   * For outer div
+   */
+  className: PropTypes.string,
+  /**
+   * For label element
+   */
   labelClassName: PropTypes.string,
+
+  /**
+   * For the input itself
+   */
   inputClassName: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
   inputProps: PropTypes.object,
