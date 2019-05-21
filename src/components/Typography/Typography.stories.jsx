@@ -33,3 +33,22 @@ storiesOf('Component|Typography/p', module)
   .add('shorthand', () => (
     <Typography.Paragraph>Hello World</Typography.Paragraph>
   ));
+
+storiesOf('Component|Typography/common', module)
+  .add('inline', () => (
+    <div className="w-1/2 border-red-500 border-2">
+      <Typography.Title inline className="border-2 border-blue-500">
+        Hello world
+      </Typography.Title>{' '}
+      <Typography.Subtitle inline className="border-2 border-blue-500">
+        This is my world
+      </Typography.Subtitle>
+    </div>
+  ))
+  .add('block', () => (
+    <div className="w-1/2 border-red-500 border-2">
+      <Typography.Title className="border-2 border-blue-500">
+        Hello world
+      </Typography.Title>
+    </div>
+  ));

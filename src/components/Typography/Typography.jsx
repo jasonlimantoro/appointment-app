@@ -16,7 +16,12 @@ const defaultComponentMapping = {
 
 const Typography = ({ component, className, inline, ...rest }) => {
   const Component = component || defaultComponentMapping[component] || 'span';
-  return <Component className={classNames(className, { inline })} {...rest} />;
+  return (
+    <Component
+      className={classNames(className, { 'inline-block': inline })}
+      {...rest}
+    />
+  );
 };
 
 Typography.propTypes = {
