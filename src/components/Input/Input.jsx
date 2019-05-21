@@ -15,7 +15,10 @@ const Input = ({
   ...rest
 }) => {
   return (
-    <div className={classNames(className, { 'w-full': fullWidth })} {...rest}>
+    <div
+      className={classNames(className, 'mb-4', { 'w-full': fullWidth })}
+      {...rest}
+    >
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
       <label
         htmlFor={id}
