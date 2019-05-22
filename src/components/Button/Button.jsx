@@ -2,17 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Button = ({ children, ripple, className, fullWidth, ...rest }) => {
+const BUTTON_VARIANTS = {
+  default: 'default',
+  primary: 'primary',
+};
+
+const VARIANTS_STYLES = {
+  default: ['border-gray', 'text-black', 'bg-gray-light', 'hover:bg-gray'],
+  primary: ['border-blue-dark', 'text-white', 'bg-blue', 'hover:bg-blue-dark'],
+};
+
+const Button = ({
+  children,
+  ripple,
+  className,
+  fullWidth,
+  variant,
+  ...rest
+}) => {
   return (
     <button
       className={classNames(
         className,
         'rounded-lg',
         'p-4',
-        'bg-blue',
-        'text-white',
         'focus:outline-none',
-        'hover:bg-blue-dark',
+        [VARIANTS_STYLES[variant].join(' ')],
         {
           ripple,
           'w-full': fullWidth,
@@ -28,6 +43,7 @@ const Button = ({ children, ripple, className, fullWidth, ...rest }) => {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  variant: PropTypes.oneOf(Object.values(BUTTON_VARIANTS)),
   /**
    * Whether to apply ripple effect onclick
    */
@@ -41,6 +57,7 @@ Button.propTypes = {
 Button.defaultProps = {
   ripple: true,
   fullWidth: false,
+  variant: 'default',
 };
 
 export default Button;
