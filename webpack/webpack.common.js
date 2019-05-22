@@ -60,9 +60,6 @@ module.exports = {
   resolve: {
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.css', '.scss'],
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
   },
   plugins: [
     new webpack.ProgressPlugin(),
