@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 import { Header, Card, Typography } from '../../components';
 
 const Home = () => {
@@ -10,10 +11,17 @@ const Home = () => {
           Enter Guest details to
         </Typography.Subtitle>
         <div className="flex flex-1">
-          <Card className="flex-1 mx-6" variant="primary">
+          <Card
+            className="flex-1 mx-6"
+            variant="primary"
+            component={Link}
+            to="/sign-in"
+          >
             Sign In
           </Card>
-          <Card className="flex-1 mx-6">Sign out</Card>
+          <Card className="flex-1 mx-6" component={Link} to="/sign-out">
+            Sign out
+          </Card>
         </div>
       </main>
     </div>
