@@ -20,7 +20,6 @@ const Login = () => {
               id="username"
               label="Username"
               inputProps={{ placeholder: 'Enter username' }}
-              inputClassName="lg:h-16 lg:text-lg"
               fullWidth
             />
             <Input
@@ -29,7 +28,6 @@ const Login = () => {
               label="Email"
               inputProps={{ placeholder: 'Enter email', type: 'email' }}
               placeholder="Enter Email"
-              inputClassName="lg:h-16 lg:text-lg"
               fullWidth
             />
             <Button fullWidth>Log In</Button>

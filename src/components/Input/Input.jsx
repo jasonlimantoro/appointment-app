@@ -22,13 +22,7 @@ const Input = ({
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
       <label
         htmlFor={id}
-        className={classNames(
-          labelClassName,
-          'font-semibold',
-          'text-xs',
-          'block',
-          'mb-1',
-        )}
+        className={classNames(labelClassName, 'font-semibold', 'block', 'mb-1')}
       >
         {label}
         {required && '*'}
@@ -38,7 +32,6 @@ const Input = ({
         className={classNames(
           inputClassName,
           'border',
-          'text-sm',
           'border-blue',
           'focus:outline-none',
           'p-3',
