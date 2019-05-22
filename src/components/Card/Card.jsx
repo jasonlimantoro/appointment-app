@@ -8,8 +8,8 @@ const CARD_VARIANTS = {
 };
 
 const VARIANT_STYLES = {
-  default: ['border-gray', 'text-black', 'bg-gray-light'],
-  primary: ['border-blue-dark', 'text-white', 'bg-blue'],
+  default: ['border-gray', 'text-black', 'bg-gray-light', 'hover:bg-gray'],
+  primary: ['border-blue-dark', 'text-white', 'bg-blue', 'hover:bg-blue-dark'],
 };
 
 const Card = ({ fullWidth, className, variant, component, ...rest }) => {
