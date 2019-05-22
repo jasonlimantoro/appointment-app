@@ -10,6 +10,12 @@ module.exports = {
           default: '#1985a0',
           dark: '#095f7d',
         },
+        gray: {
+          ...colors.blue,
+          light: '#dddddd',
+          default: '#a2a2a2',
+          dark: '#707070',
+        },
       },
       fontSize: {
         '2.5xl': '1.625rem',
@@ -22,6 +28,9 @@ module.exports = {
       },
       minHeight: {
         header: '4rem',
+      },
+      borderRadius: {
+        xl: '3rem',
       },
     },
   },

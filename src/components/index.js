@@ -1,5 +1,6 @@
 import Button from './Button';
+import Card from './Card';
 import Input from './Input';
 import Typography from './Typography';
 
-export { Button, Input, Typography };
+export { Button, Input, Typography, Card };
