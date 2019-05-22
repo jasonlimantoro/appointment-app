@@ -2,6 +2,6 @@ import Button from './Button';
 import Card from './Card';
 import Input from './Input';
 import Typography from './Typography';
-import { Header } from './layouts';
+import { Master } from './layouts';
 
-export { Button, Input, Typography, Card, Header };
+export { Button, Input, Typography, Card, Master };
