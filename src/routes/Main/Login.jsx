@@ -30,7 +30,9 @@ const Login = () => {
               placeholder="Enter Email"
               fullWidth
             />
-            <Button fullWidth>Log In</Button>
+            <Button variant="primary" fullWidth>
+              Log In
+            </Button>
           </form>
           <Typography.Paragraph>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
