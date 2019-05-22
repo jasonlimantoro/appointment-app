@@ -5,7 +5,7 @@ import banner from '../../images/america-analysis-cellphone.png';
 const Login = () => {
   return (
     <div className="flex h-full">
-      <div
+      <picture
         className="flex-1 bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: `url(${banner})` }}
       />
