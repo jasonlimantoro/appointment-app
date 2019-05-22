@@ -12,9 +12,10 @@ const VARIANT_STYLES = {
   primary: ['border-blue-dark', 'text-white', 'bg-blue'],
 };
 
-const Card = ({ children, fullWidth, className, variant }) => {
+const Card = ({ fullWidth, className, variant, component, ...rest }) => {
+  const Component = component;
   return (
-    <div
+    <Component
       className={classNames(
         className,
         'inline-flex',
@@ -31,9 +32,8 @@ const Card = ({ children, fullWidth, className, variant }) => {
         },
         [VARIANT_STYLES[variant].join(' ')],
       )}
-    >
-      {children}
-    </div>
+      {...rest}
+    />
   );
 };
 
@@ -41,12 +41,14 @@ Card.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   fullWidth: PropTypes.bool,
+  component: PropTypes.elementType,
   variant: PropTypes.oneOf(Object.values(CARD_VARIANTS)),
 };
 
 Card.defaultProps = {
   fullWidth: false,
   variant: CARD_VARIANTS.default,
+  component: 'div',
 };
 
 export default Card;
