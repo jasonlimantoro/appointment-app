@@ -27,7 +27,9 @@ module.exports = {
         xl: '4.5rem',
       },
       minHeight: {
+        inherit: 'inherit',
         header: '4rem',
+        main: 'calc(100vh - 4rem)',
       },
       borderRadius: {
         xl: '3rem',

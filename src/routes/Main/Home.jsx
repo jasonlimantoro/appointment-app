@@ -1,9 +1,23 @@
 import React from 'react';
+import { Header, Card, Typography } from '../../components';
 
 const Home = () => {
-  return <h1>Home Page</h1>;
+  return (
+    <div className="min-h-screen">
+      <Header title="Company Name" />
+      <main className="min-h-main flex flex-col pb-6">
+        <Typography.Subtitle className="text-center">
+          Enter Guest details to
+        </Typography.Subtitle>
+        <div className="flex flex-1">
+          <Card className="flex-1 mx-6" variant="primary">
+            Sign In
+          </Card>
+          <Card className="flex-1 mx-6">Sign out</Card>
+        </div>
+      </main>
+    </div>
+  );
 };
-
-Home.propTypes = {};
 
 export default Home;
