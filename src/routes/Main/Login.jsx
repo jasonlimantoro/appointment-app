@@ -34,13 +34,11 @@ const Login = () => {
             />
             <Button fullWidth>Log In</Button>
           </form>
-          <p>
-            <Typography.Paragraph>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              Don't have an account?{' '}
-              <Typography className="font-bold">Sign up</Typography>
-            </Typography.Paragraph>
-          </p>
+          <Typography.Paragraph>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            Don't have an account?{' '}
+            <Typography className="font-bold">Sign up</Typography>
+          </Typography.Paragraph>
         </div>
       </div>
     </div>
