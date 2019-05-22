@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Button, Typography } from '../../components';
-import banner from '../../images/america-analysis-cellphone.png';
+import banner from '../../images/business.png';
 
 const Login = () => {
   return (
