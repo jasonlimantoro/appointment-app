@@ -51,6 +51,7 @@
   "dependencies": {
     "@babel/plugin-transform-react-constant-elements": "7.2.0",
     "@babel/plugin-transform-react-inline-elements": "7.2.0",
+    "@hot-loader/react-dom": "16.8.6",
     "@reach/router": "^1.2.1",
     "babel-plugin-transform-react-pure-class-to-function": "1.0.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
@@ -58,7 +59,6 @@
     "lodash": "4.17.11",
     "prop-types": "15.7.2",
     "react": "16.8.6",
-    "react-dom": "16.8.6",
     "react-hot-loader": "4.8.4"
   },
   "resolutions": {

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { hot } from 'react-hot-loader/root';
 
 import Routes from '../routes';
 
@@ -10,4 +11,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default hot(App);
