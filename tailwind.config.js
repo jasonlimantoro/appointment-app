@@ -37,6 +37,9 @@ module.exports = {
       borderRadius: {
         xl: '3rem',
       },
+      screens: {
+        xxl: '1600px',
+      },
     },
   },
   variants: {},

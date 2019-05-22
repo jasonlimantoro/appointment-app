@@ -1,5 +1,11 @@
 html {
 	@apply text-base leading-normal;
+	@screen xl {
+		@apply text-lg;
+	}
+	@screen xxl {
+		@apply text-xl;
+	}
 }
 
 body {
