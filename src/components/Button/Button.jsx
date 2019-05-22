@@ -1,16 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
-const BUTTON_VARIANTS = {
-  default: 'default',
-  primary: 'primary',
-};
-
-const VARIANTS_STYLES = {
-  default: ['border-gray', 'text-black', 'bg-gray-light', 'hover:bg-gray'],
-  primary: ['border-blue-dark', 'text-white', 'bg-blue', 'hover:bg-blue-dark'],
-};
+import VARIANTS from '../utils/variants';
+import { variantPropTypes } from '../utils/propTypes';
 
 const Button = ({
   children,
@@ -27,7 +19,7 @@ const Button = ({
         'rounded-lg',
         'p-4',
         'focus:outline-none',
-        [VARIANTS_STYLES[variant].join(' ')],
+        [VARIANTS[variant]],
         {
           ripple,
           'w-full': fullWidth,
@@ -43,7 +35,7 @@ const Button = ({
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  variant: PropTypes.oneOf(Object.values(BUTTON_VARIANTS)),
+  ...variantPropTypes,
   /**
    * Whether to apply ripple effect onclick
    */
@@ -57,7 +49,8 @@ Button.propTypes = {
 Button.defaultProps = {
   ripple: true,
   fullWidth: false,
-  variant: 'default',
+  // eslint-disable-next-line react/default-props-match-prop-types
+  variant: VARIANTS.default,
 };
 
 export default Button;

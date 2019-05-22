@@ -1,16 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
-const CARD_VARIANTS = {
-  default: 'default',
-  primary: 'primary',
-};
-
-const VARIANT_STYLES = {
-  default: ['border-gray', 'text-black', 'bg-gray-light', 'hover:bg-gray'],
-  primary: ['border-blue-dark', 'text-white', 'bg-blue', 'hover:bg-blue-dark'],
-};
+import VARIANTS from '../utils/variants';
+import { variantPropTypes } from '../utils/propTypes';
 
 const Card = ({ fullWidth, className, variant, component, ...rest }) => {
   const Component = component;
@@ -30,7 +22,7 @@ const Card = ({ fullWidth, className, variant, component, ...rest }) => {
         {
           'w-full': fullWidth,
         },
-        [VARIANT_STYLES[variant].join(' ')],
+        [VARIANTS[variant]],
       )}
       {...rest}
     />
@@ -42,12 +34,13 @@ Card.propTypes = {
   children: PropTypes.node,
   fullWidth: PropTypes.bool,
   component: PropTypes.elementType,
-  variant: PropTypes.oneOf(Object.values(CARD_VARIANTS)),
+  ...variantPropTypes,
 };
 
 Card.defaultProps = {
   fullWidth: false,
-  variant: CARD_VARIANTS.default,
+  // eslint-disable-next-line react/default-props-match-prop-types
+  variant: VARIANTS.default,
   component: 'div',
 };
 

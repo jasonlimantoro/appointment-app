@@ -1,0 +1,13 @@
+.default {
+	@apply border-gray text-black bg-gray-light;
+	&:hover {
+		@apply bg-gray;
+	}
+}
+
+.primary {
+	@apply border-blue-dark text-white bg-blue;
+	&:hover {
+		@apply bg-blue-dark;
+	}
+}
