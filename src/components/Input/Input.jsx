@@ -14,6 +14,10 @@ const Input = ({
   inputProps,
   ...rest
 }) => {
+  const finalInputProps = {
+    ...inputProps,
+    required,
+  };
   return (
     <div
       className={classNames(className, 'mb-4', { 'w-full': fullWidth })}
@@ -40,7 +44,7 @@ const Input = ({
             'w-full': fullWidth,
           },
         )}
-        {...inputProps}
+        {...finalInputProps}
       />
       {error && <p className="text-red-500 text-sm">{error}!</p>}
     </div>
