@@ -7,6 +7,9 @@ const commonPaths = require('./paths');
 
 module.exports = {
   entry: commonPaths.entryPath,
+  output: {
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
