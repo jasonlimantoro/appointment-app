@@ -36,17 +36,17 @@ const Input = ({
         className={classNames(
           inputClassName,
           'border',
-          'border-blue',
           'focus:outline-none',
           'p-3',
           'rounded-sm',
+          error ? 'border-red-500' : 'border-blue',
           {
             'w-full': fullWidth,
           },
         )}
         {...finalInputProps}
       />
-      {error && <p className="text-red-500 text-sm">{error}!</p>}
+      {error && <p className="text-red-500 text-sm mb-0">{error}!</p>}
     </div>
   );
 };
