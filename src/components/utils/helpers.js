@@ -43,3 +43,15 @@ export const setNestedObjectValues = (
  * @returns {Promise<*>}
  */
 export const sleep = async ms => new Promise(r => setTimeout(r, ms));
+
+/**
+ * Transform error to string so it can be rendered easily in the DOM
+ * @param error
+ * @returns {string}
+ */
+export const transformErrorToString = error => {
+  if (typeof error === 'object') {
+    return error.message;
+  }
+  return error;
+};

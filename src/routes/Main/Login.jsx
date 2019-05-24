@@ -1,8 +1,56 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 import { Input, Button, Typography } from '../../components';
+
 import banner from '../../images/business.png';
+import { useForm } from '../../hooks';
+import { transformErrorToString } from '../../components/utils/helpers';
 
 const Login = () => {
+  const {
+    getFieldProps,
+    handleSubmit,
+    errors,
+    touched,
+    submissionError,
+  } = useForm({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    onSubmit: () => {
+      navigate('/');
+    },
+    validate: values => {
+      const formErrors = {};
+      switch (true) {
+        case values.username === '':
+          formErrors.username = 'Username is required';
+          break;
+        case !/^John Doe$/.test(values.username):
+          formErrors.username = 'Username is not valid';
+          break;
+        default:
+          break;
+      }
+      switch (true) {
+        case values.password === '':
+          formErrors.password = 'Password is required';
+          break;
+        case values.password.length < 4:
+          formErrors.password = 'Password length is less than 4';
+          break;
+        case !/^asdf$/.test(values.password):
+          formErrors.password = 'Password is incorrect';
+          break;
+        default:
+          break;
+      }
+      return formErrors;
+    },
+    delay: 1000,
+  });
+
   return (
     <div className="flex h-full">
       <picture
@@ -15,19 +63,31 @@ const Login = () => {
             Log
           </Typography.Title>{' '}
           <Typography.Title inline>In</Typography.Title>
-          <form action="#" className="mt-20 mb-20">
+          <form onSubmit={handleSubmit} className="mt-20 mb-20">
+            {submissionError && (
+              <Typography component="h4" className="text-red-500 mb-4">
+                {transformErrorToString(submissionError)}
+              </Typography>
+            )}
             <Input
-              id="username"
               label="Username"
-              inputProps={{ placeholder: 'Enter username' }}
+              inputProps={{
+                name: 'username',
+                placeholder: 'Enter username',
+                ...getFieldProps('username'),
+              }}
+              error={touched.username && errors.username}
               fullWidth
             />
             <Input
-              id="password"
-              type="password"
               label="Password"
-              inputProps={{ placeholder: 'Enter password', type: 'password' }}
-              placeholder="Enter Password"
+              inputProps={{
+                name: 'password',
+                placeholder: 'Enter password',
+                type: 'password',
+                ...getFieldProps('password'),
+              }}
+              error={touched.password && errors.password}
               fullWidth
             />
             <Button variant="primary" fullWidth>

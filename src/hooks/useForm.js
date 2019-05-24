@@ -64,6 +64,7 @@ const useForm = ({ initialValues, onSubmit, validate, delay = 500 }) => {
     errors: {},
     touched: {},
     isSubmitting: false,
+    submissionError: undefined,
   });
 
   // validation on the fly
@@ -107,7 +108,10 @@ const useForm = ({ initialValues, onSubmit, validate, delay = 500 }) => {
         dispatch({ type: actions.SUBMIT_FAILURE, payload: error });
       }
     } else {
-      dispatch({ type: actions.SUBMIT_FAILURE });
+      dispatch({
+        type: actions.SUBMIT_FAILURE,
+        payload: 'Please correct the following inputs first!',
+      });
       dispatch({ type: actions.SET_ERRORS, payload: errors });
     }
   };
