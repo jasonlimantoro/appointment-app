@@ -40,6 +40,9 @@ module.exports = {
       screens: {
         xxl: '1600px',
       },
+      height: {
+        photoFeedback: '24rem',
+      },
     },
   },
   variants: {},

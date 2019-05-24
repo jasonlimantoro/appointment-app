@@ -1,6 +1,6 @@
 import React from 'react';
-import { Master } from '../../components/layouts';
-import { Button, Input } from '../../components';
+import { Master } from '../../../components/layouts';
+import { Button, Input } from '../../../components';
 
 const SignOut = () => {
   return (

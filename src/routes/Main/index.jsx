@@ -9,14 +9,12 @@ import SignOut from './SignOut';
 
 const Index = () => {
   return (
-    <div className="h-full">
-      <Router className="h-full">
-        <Home path="/" />
-        <Login path="/login" />
-        <SignIn path="/sign-in" />
-        <SignOut path="/sign-out" />
-      </Router>
-    </div>
+    <Router className="h-full">
+      <Home path="/" />
+      <Login path="/login" />
+      <SignIn path="/sign-in/*" />
+      <SignOut path="/sign-out/*" />
+    </Router>
   );
 };
 
