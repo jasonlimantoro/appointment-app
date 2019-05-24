@@ -5,20 +5,24 @@ import VARIANTS from '../utils/variants';
 import { variantPropTypes } from '../utils/propTypes';
 
 const Button = ({
-  children,
   ripple,
   className,
   fullWidth,
   variant,
+  component,
   ...rest
 }) => {
+  const Component = component;
   return (
-    <button
+    <Component
       className={classNames(
         className,
         'rounded-lg',
         'p-4',
         'focus:outline-none',
+        'text-center',
+        'leading-normal',
+        'inline-block',
         [VARIANTS[variant]],
         {
           ripple,
@@ -26,9 +30,7 @@ const Button = ({
         },
       )}
       {...rest}
-    >
-      {children}
-    </button>
+    />
   );
 };
 
@@ -36,6 +38,7 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   ...variantPropTypes,
+  component: PropTypes.elementType,
   /**
    * Whether to apply ripple effect onclick
    */
@@ -49,6 +52,7 @@ Button.propTypes = {
 Button.defaultProps = {
   ripple: true,
   fullWidth: false,
+  component: 'button',
   // eslint-disable-next-line react/default-props-match-prop-types
   variant: VARIANTS.default,
 };
