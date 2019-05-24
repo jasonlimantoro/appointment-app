@@ -23,11 +23,11 @@ const Login = () => {
               fullWidth
             />
             <Input
-              id="email"
-              type="email"
-              label="Email"
-              inputProps={{ placeholder: 'Enter email', type: 'email' }}
-              placeholder="Enter Email"
+              id="password"
+              type="password"
+              label="Password"
+              inputProps={{ placeholder: 'Enter password', type: 'password' }}
+              placeholder="Enter Password"
               fullWidth
             />
             <Button variant="primary" fullWidth>
