@@ -18,10 +18,10 @@ const service = new UserService({
 
 export const getUser = (key = 'user') => {
   const user = get(key);
-  if (!user) {
-    return null;
+  if (user && user.username) {
+    return user;
   }
-  return user;
+  return undefined;
 };
 
 const saveUser = ({ username }, key = 'user') => {
