@@ -102,7 +102,7 @@ const useForm = ({ initialValues, onSubmit, validate, delay = 500 }) => {
     if (!Object.keys(errors).length) {
       try {
         await sleep(delay);
-        await onSubmit();
+        await onSubmit(state.values);
         dispatch({ type: actions.SUBMIT_SUCCESS });
       } catch (error) {
         dispatch({ type: actions.SUBMIT_FAILURE, payload: error });
