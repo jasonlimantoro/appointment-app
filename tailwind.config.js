@@ -1,5 +1,7 @@
 const { colors, fontFamily } = require('tailwindcss/defaultTheme');
 
+const header = '4rem';
+
 module.exports = {
   theme: {
     extend: {
@@ -32,17 +34,18 @@ module.exports = {
       },
       minHeight: {
         inherit: 'inherit',
-        header: '4rem',
-        main: 'calc(100vh - 4rem)',
+        header,
+        main: `calc(100vh - ${header})`,
+      },
+      height: {
+        photoFeedback: '24rem',
+        header,
       },
       borderRadius: {
         xl: '3rem',
       },
       screens: {
         xxl: '1600px',
-      },
-      height: {
-        photoFeedback: '24rem',
       },
     },
   },
