@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
+
+import { selectors } from '../../reducers/rootReducer';
 import { Input, Button, Typography } from '../../components';
-
-import banner from '../../images/business.png';
 import { useForm } from '../../hooks';
+import { loginUser } from '../../actions/users.action';
 import { transformErrorToString } from '../../components/utils/helpers';
+import banner from '../../images/business.png';
 
-const Login = () => {
+const Login = ({ loginUser, isAuthenticated }) => {
   const {
     getFieldProps,
     handleSubmit,
@@ -18,17 +23,14 @@ const Login = () => {
       username: '',
       password: '',
     },
-    onSubmit: () => {
-      navigate('/');
+    onSubmit: async values => {
+      await loginUser(values);
     },
     validate: values => {
       const formErrors = {};
       switch (true) {
         case values.username === '':
           formErrors.username = 'Username is required';
-          break;
-        case !/^John Doe$/.test(values.username):
-          formErrors.username = 'Username is not valid';
           break;
         default:
           break;
@@ -40,9 +42,6 @@ const Login = () => {
         case values.password.length < 4:
           formErrors.password = 'Password length is less than 4';
           break;
-        case !/^asdf$/.test(values.password):
-          formErrors.password = 'Password is incorrect';
-          break;
         default:
           break;
       }
@@ -50,7 +49,11 @@ const Login = () => {
     },
     delay: 1000,
   });
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, []);
   return (
     <div className="flex h-full">
       <picture
@@ -105,4 +108,21 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  // redux actions
+  loginUser: PropTypes.func.isRequired,
+
+  // redux state
+  isAuthenticated: PropTypes.bool,
+};
+
+export default compose(
+  connect(
+    state => {
+      return {
+        isAuthenticated: selectors.users.selectIsAuthenticated(state),
+      };
+    },
+    { loginUser },
+  ),
+)(Login);

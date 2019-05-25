@@ -1,25 +1,24 @@
 import React from 'react';
-// TODO: Uncomment when decided to use props
-// import PropTypes from 'prop-types';
 import { Router } from '@reach/router';
 import Home from './Home';
 import Login from './Login';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
+import { AuthRequired } from '../../HOC';
+
+const AuthHome = AuthRequired(Home);
+const AuthSignIn = AuthRequired(SignIn);
+const AuthSignOut = AuthRequired(SignOut);
 
 const Index = () => {
   return (
     <Router className="h-full">
-      <Home path="/" />
       <Login path="/login" />
-      <SignIn path="/sign-in/*" />
-      <SignOut path="/sign-out/*" />
+      <AuthHome path="/" />
+      <AuthSignIn path="/sign-in/*" />
+      <AuthSignOut path="/sign-out/*" />
     </Router>
   );
 };
-
-Index.propTypes = {};
-
-Index.defaultProps = {};
 
 export default Index;
