@@ -11,3 +11,10 @@
 		@apply bg-blue-dark;
 	}
 }
+
+.transparentLight {
+	@apply text-white bg-transparent;
+	&:hover {
+		@apply bg-gray-transparent;
+	}
+}

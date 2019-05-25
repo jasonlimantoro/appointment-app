@@ -18,6 +18,7 @@ module.exports = {
           light: '#dddddd',
           default: '#b8b8b8',
           dark: '#707070',
+          transparent: '#b8b8b83b',
         },
       },
       fontSize: {

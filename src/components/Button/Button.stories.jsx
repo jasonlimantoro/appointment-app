@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import classNames from 'classnames';
 import Button from '.';
 
 const TEXT = {
@@ -9,14 +10,21 @@ const TEXT = {
 
 storiesOf('Component|Button', module).add('variants', () => {
   const themedButton = [
-    { name: 'default', text: TEXT.short },
-    { name: 'primary', text: TEXT.short },
+    { name: 'default', text: TEXT.short, containerColor: 'bg-gray-dark' },
+    { name: 'primary', text: TEXT.short, containerColor: 'bg-gray-light' },
+    {
+      name: 'transparentLight',
+      text: TEXT.short,
+      containerColor: 'bg-blue-dark',
+    },
   ];
   return (
     <div className="flex">
       {themedButton.map(b => (
         <div key={b.name} className="flex flex-col mx-3">
-          <Button className={b.name}>{b.text}</Button>
+          <div className={classNames('p-4', b.containerColor)}>
+            <Button className={b.name}>{b.text}</Button>
+          </div>
           {b.name}
         </div>
       ))}
