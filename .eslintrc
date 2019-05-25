@@ -65,6 +65,8 @@
     "react/jsx-indent-props": 0,
     "react/button-has-type": 0,
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "no-underscore-dangle": 0,
+    "no-shadow": 0,
     "prefer-template": 0,
     "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
