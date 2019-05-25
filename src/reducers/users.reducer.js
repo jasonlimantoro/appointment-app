@@ -1,25 +1,27 @@
 import { actions, getUser } from '../actions/users.action';
 
-const initialState = () => {
-  let initialState = {
-    username: '',
-    isAuthenticated: false,
-    loginAttempt: 0,
-    isAttempting: false,
-    error: {},
-  };
-  const { username } = getUser();
-  if (username) {
-    initialState = {
-      ...initialState,
-      isAuthenticated: true,
-      username,
-    };
-  }
-  return initialState;
+const initialState = {
+  username: '',
+  isAuthenticated: false,
+  loginAttempt: 0,
+  isAttempting: false,
+  error: {},
 };
 
-export default (state = initialState(), action) => {
+const computeDerivedState = () => {
+  let derivedState = initialState;
+  const user = getUser();
+  if (user && user.username) {
+    derivedState = {
+      ...initialState,
+      isAuthenticated: true,
+      username: user.username,
+    };
+  }
+  return derivedState;
+};
+
+export default (state = computeDerivedState(), action) => {
   switch (action.type) {
     case actions.LOGIN_BEGIN:
       return {
