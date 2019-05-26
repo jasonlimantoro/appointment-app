@@ -2,7 +2,7 @@ import { navigate } from '@reach/router';
 
 import UserService from '../services/UserService';
 import MockService from '../services/MockService';
-import { get, save, flush } from '../components/utils/localStorage';
+import * as storage from '../components/utils/localStorage';
 
 export const actions = {
   LOGIN_BEGIN: 'LOGIN_BEGIN',
@@ -13,33 +13,33 @@ export const actions = {
   LOGOUT_FAILURE: 'LOGOUT_FAILURE',
 };
 
-const service = new UserService({
+const defaultService = new UserService({
   baseUrl: '/',
   ServiceUtil: MockService,
 });
 
 export const getUser = (key = 'auth') => {
-  const user = get(key);
+  const user = storage.get(key);
   if (user) {
     return user;
   }
   return undefined;
 };
 
-const saveUser = (user, key = 'auth') => {
+export const saveUser = (user, key = 'auth') => {
   if (!getUser(key)) {
-    save(key, user);
+    storage.save(key, user);
   }
 };
 
-const flushUser = (key = 'auth') => {
-  return flush(key);
+export const flushUser = (key = 'auth') => {
+  return storage.flush(key);
 };
 
-export const loginUser = ({ username, password }) => async (
-  dispatch,
-  getState,
-) => {
+export const loginUser = (
+  { username, password },
+  service = defaultService,
+) => async (dispatch, getState) => {
   dispatch({ type: actions.LOGIN_BEGIN });
   try {
     const { token } = await service.login({ username, password });
@@ -55,10 +55,10 @@ export const loginUser = ({ username, password }) => async (
   }
 };
 
-export const logoutUser = () => async dispatch => {
+export const logoutUser = (service = defaultService) => async dispatch => {
   const user = getUser();
   if (!user) {
-    throw Error('Not signed in!');
+    throw Error('Not signed in');
   }
   dispatch({
     type: actions.LOGOUT_BEGIN,
