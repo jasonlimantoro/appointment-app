@@ -1,6 +1,6 @@
 import { actions, getUser } from '../actions/users.action';
 
-const initialState = {
+export const initialState = {
   user: {},
   isAuthenticated: false,
   loginAttempt: 0,
