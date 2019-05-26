@@ -15,3 +15,13 @@ export const get = key => {
   }
   return result;
 };
+
+export const flush = key => {
+  try {
+    localStorage.removeItem(key);
+    return true;
+  } catch (e) {
+    // do nothing
+  }
+  return false;
+};

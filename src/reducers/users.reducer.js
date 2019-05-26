@@ -4,7 +4,8 @@ const initialState = {
   username: '',
   isAuthenticated: false,
   loginAttempt: 0,
-  isAttempting: false,
+  isLoggingIn: false,
+  isLoggingOut: false,
   error: {},
 };
 
@@ -26,22 +27,38 @@ export default (state = computeDerivedState(), action) => {
     case actions.LOGIN_BEGIN:
       return {
         ...state,
-        isAttempting: true,
+        isLoggingIn: true,
       };
     case actions.LOGIN_SUCCESS:
       return {
         ...state,
         username: action.payload.username,
         isAuthenticated: true,
-        isAttempting: false,
+        isLoggingIn: false,
         loginAttempt: initialState.loginAttempt,
         error: initialState.error,
       };
     case actions.LOGIN_FAILURE:
       return {
         ...state,
-        isAttempting: false,
+        isLoggingIn: false,
         loginAttempt: state.loginAttempt + 1,
+        error: action.payload,
+      };
+    case actions.LOGOUT_BEGIN:
+      return {
+        ...state,
+        isLoggingOut: true,
+      };
+
+    case actions.LOGOUT_SUCCESS:
+      return {
+        ...initialState,
+      };
+    case actions.LOGOUT_FAILURE:
+      return {
+        ...state,
+        isLoggingOut: false,
         error: action.payload,
       };
     default:
