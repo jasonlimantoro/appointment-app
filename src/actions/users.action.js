@@ -18,33 +18,36 @@ const service = new UserService({
   ServiceUtil: MockService,
 });
 
-export const getUser = (key = 'user') => {
+export const getUser = (key = 'auth') => {
   const user = get(key);
-  if (user && user.username) {
+  if (user) {
     return user;
   }
   return undefined;
 };
 
-const saveUser = ({ username, token }, key = 'user') => {
+const saveUser = (user, key = 'auth') => {
   if (!getUser(key)) {
-    save(key, { username, token });
+    save(key, user);
   }
 };
 
-const flushUser = (key = 'user') => {
+const flushUser = (key = 'auth') => {
   return flush(key);
 };
 
-export const loginUser = ({ username, password }) => async dispatch => {
+export const loginUser = ({ username, password }) => async (
+  dispatch,
+  getState,
+) => {
   dispatch({ type: actions.LOGIN_BEGIN });
   try {
     const { token } = await service.login({ username, password });
-    dispatch({
+    await dispatch({
       type: actions.LOGIN_SUCCESS,
-      payload: { username },
+      payload: { username, token },
     });
-    saveUser({ username, token });
+    saveUser(getState().users);
     navigate('/');
   } catch (e) {
     dispatch({ type: actions.LOGIN_FAILURE, payload: e.message });
@@ -54,14 +57,16 @@ export const loginUser = ({ username, password }) => async dispatch => {
 
 export const logoutUser = () => async dispatch => {
   const user = getUser();
-  if (!user || !user.username) {
+  if (!user) {
     throw Error('Not signed in!');
   }
   dispatch({
     type: actions.LOGOUT_BEGIN,
   });
   try {
-    const { token } = user;
+    const {
+      user: { token },
+    } = user;
     await service.logout({ token });
     flushUser();
     navigate('/login');

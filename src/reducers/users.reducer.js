@@ -1,7 +1,7 @@
 import { actions, getUser } from '../actions/users.action';
 
 const initialState = {
-  username: '',
+  user: {},
   isAuthenticated: false,
   loginAttempt: 0,
   isLoggingIn: false,
@@ -11,13 +11,9 @@ const initialState = {
 
 const computeDerivedState = () => {
   let derivedState = initialState;
-  const user = getUser();
-  if (user && user.username) {
-    derivedState = {
-      ...initialState,
-      isAuthenticated: true,
-      username: user.username,
-    };
+  const persistedState = getUser();
+  if (persistedState) {
+    derivedState = persistedState;
   }
   return derivedState;
 };
@@ -32,7 +28,7 @@ export default (state = computeDerivedState(), action) => {
     case actions.LOGIN_SUCCESS:
       return {
         ...state,
-        username: action.payload.username,
+        user: action.payload,
         isAuthenticated: true,
         isLoggingIn: false,
         loginAttempt: initialState.loginAttempt,
