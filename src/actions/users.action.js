@@ -19,11 +19,7 @@ const defaultService = new UserService({
 });
 
 export const getUser = (key = 'auth') => {
-  const user = storage.get(key);
-  if (user) {
-    return user;
-  }
-  return undefined;
+  return storage.get(key);
 };
 
 export const saveUser = (user, key = 'auth') => {

@@ -7,7 +7,7 @@ export const save = (key, value) => {
 };
 
 export const get = key => {
-  let result = {};
+  let result;
   try {
     result = JSON.parse(localStorage.getItem(key));
   } catch (e) {
@@ -17,11 +17,5 @@ export const get = key => {
 };
 
 export const flush = key => {
-  try {
-    localStorage.removeItem(key);
-    return true;
-  } catch (e) {
-    // do nothing
-  }
-  return false;
+  localStorage.removeItem(key);
 };
