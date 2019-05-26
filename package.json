@@ -26,7 +26,7 @@
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(jpg|gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+      "\\.(jpg|gif|png|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     },
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",
