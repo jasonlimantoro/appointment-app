@@ -2,10 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import AWSAppSyncClient from 'aws-appsync';
 import { ApolloProvider } from 'react-apollo';
+import Amplify from 'aws-amplify';
 import PropTypes from 'prop-types';
 import configureStore from '../store';
 import config from '../aws-exports';
 import App from './App';
+
+Amplify.configure(config);
 
 const client = new AWSAppSyncClient({
   url: config.aws_appsync_graphqlEndpoint,
