@@ -160,3 +160,33 @@ export const onDeleteComment = `subscription OnDeleteComment {
   }
 }
 `;
+export const onCreateGuest = `subscription OnCreateGuest {
+  onCreateGuest {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;
+export const onUpdateGuest = `subscription OnUpdateGuest {
+  onUpdateGuest {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;
+export const onDeleteGuest = `subscription OnDeleteGuest {
+  onDeleteGuest {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;

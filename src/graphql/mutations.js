@@ -160,3 +160,33 @@ export const deleteComment = `mutation DeleteComment($input: DeleteCommentInput!
   }
 }
 `;
+export const createGuest = `mutation CreateGuest($input: CreateGuestInput!) {
+  createGuest(input: $input) {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;
+export const updateGuest = `mutation UpdateGuest($input: UpdateGuestInput!) {
+  updateGuest(input: $input) {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;
+export const deleteGuest = `mutation DeleteGuest($input: DeleteGuestInput!) {
+  deleteGuest(input: $input) {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;

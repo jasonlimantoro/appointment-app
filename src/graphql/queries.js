@@ -110,3 +110,30 @@ export const listComments = `query ListComments(
   }
 }
 `;
+export const getGuest = `query GetGuest($id: ID!) {
+  getGuest(id: $id) {
+    id
+    firstName
+    lastName
+    NIK
+    company
+  }
+}
+`;
+export const listGuests = `query ListGuests(
+  $filter: ModelGuestFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listGuests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      firstName
+      lastName
+      NIK
+      company
+    }
+    nextToken
+  }
+}
+`;
