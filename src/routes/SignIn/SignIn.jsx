@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Master } from '../../../components';
+import { Input, Button, Master } from '../../components';
 
 const SignIn = () => {
   return (

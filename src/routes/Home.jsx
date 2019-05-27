@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import { Master, Card } from '../../components';
+import { Master, Card } from '../components';
 
 const Home = () => {
   return (

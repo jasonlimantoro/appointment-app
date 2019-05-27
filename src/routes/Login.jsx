@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
-import AWS from '../../services/aws';
+import AWS from '../services/aws';
 
-import { selectors } from '../../reducers/rootReducer';
-import { Input, Button, Typography } from '../../components';
-import { useForm } from '../../hooks';
-import { loginUser } from '../../actions/users.action';
-import { transformErrorToString } from '../../components/utils/helpers';
-import banner from '../../images/business.png';
+import { selectors } from '../reducers/rootReducer';
+import { Input, Button, Typography } from '../components';
+import { useForm } from '../hooks';
+import { loginUser } from '../actions/users.action';
+import { transformErrorToString } from '../components/utils/helpers';
+import banner from '../images/business.png';
 
 const Login = ({ loginUser, isAuthenticated }) => {
   const {

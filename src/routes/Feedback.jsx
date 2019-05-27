@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from '@reach/router';
 import PropTypes from 'prop-types';
 
-import { Master } from '../../components/layouts';
-import { Button, Typography } from '../../components';
+import { Master } from '../components/layouts';
+import { Button, Typography } from '../components';
 
 const Feedback = ({ message }) => {
   return (
