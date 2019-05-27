@@ -12,14 +12,12 @@ const user = {
 };
 
 const mockServiceCreator = (success = true, err = Error('Unknown Error')) => ({
-  login: () =>
-    new Promise((resolve, reject) => {
-      return success ? resolve({ token: user.token }) : reject(err);
-    }),
-  logout: () =>
-    new Promise((resolve, reject) => {
-      return success ? resolve({ result: true }) : reject(err);
-    }),
+  login: success
+    ? jest.fn().mockResolvedValue({ token: user.token })
+    : jest.fn().mockRejectedValue(err),
+  logout: success
+    ? jest.fn().mockResolvedValue({})
+    : jest.fn().mockRejectedValue(err),
 });
 
 describe('Authentication', () => {
@@ -31,11 +29,12 @@ describe('Authentication', () => {
     userActions.flushUser();
   });
   describe('Login', () => {
+    const service = mockServiceCreator();
     it('should dispatch a login begin action when login succeeds', async () => {
       await store.dispatch(
         userActions.loginUser(
           { username: user.username, password: user.password },
-          mockServiceCreator(),
+          service,
         ),
       );
       const expectedActions = [
@@ -50,13 +49,18 @@ describe('Authentication', () => {
       ];
       const actual = store.getActions();
       expect(actual).toEqual(expectedActions);
+      expect(service.login).toHaveBeenCalledWith({
+        username: user.username,
+        password: user.password,
+      });
     });
     it('should dispatch a login begin action when login fails', async () => {
+      const service = mockServiceCreator(false);
       try {
         await store.dispatch(
           userActions.loginUser(
             { username: user.username, password: user.password },
-            mockServiceCreator(false),
+            service,
           ),
         );
       } catch (e) {
@@ -68,15 +72,21 @@ describe('Authentication', () => {
       ];
       const actual = store.getActions();
       expect(actual).toEqual(expectedActions);
+      expect(service.login).toHaveBeenCalledWith({
+        username: user.username,
+        password: user.password,
+      });
     });
   });
   describe('Logout', () => {
     it('should throw error when not logged in', async () => {
+      const service = mockServiceCreator();
       try {
         await store.dispatch(userActions.logoutUser(mockServiceCreator()));
       } catch (e) {
         expect(e.message).toEqual('Not signed in');
       }
+      expect(service.logout).not.toHaveBeenCalled();
     });
     describe('Logged In First', () => {
       beforeEach(() => {
@@ -86,17 +96,20 @@ describe('Authentication', () => {
         userActions.flushUser();
       });
       it('should dispatch a logout begin action when logout succeeds', async () => {
-        await store.dispatch(userActions.logoutUser(mockServiceCreator()));
+        const service = mockServiceCreator();
+        await store.dispatch(userActions.logoutUser(service));
         const expectedActions = [
           { type: userActions.actions.LOGOUT_BEGIN },
           { type: userActions.actions.LOGOUT_SUCCESS },
         ];
         const actual = store.getActions();
         expect(actual).toEqual(expectedActions);
+        expect(service.logout).toHaveBeenCalledWith({ token: user.token });
       });
 
       it('should dispatch a logout begin action when logout fails', async () => {
-        await store.dispatch(userActions.logoutUser(mockServiceCreator(false)));
+        const service = mockServiceCreator(false);
+        await store.dispatch(userActions.logoutUser(service));
         const expectedActions = [
           { type: userActions.actions.LOGOUT_BEGIN },
           {
@@ -106,6 +119,9 @@ describe('Authentication', () => {
         ];
         const actual = store.getActions();
         expect(actual).toEqual(expectedActions);
+        expect(service.logout).toHaveBeenCalledWith({
+          token: user.token,
+        });
       });
     });
   });
