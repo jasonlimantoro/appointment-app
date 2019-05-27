@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import AWSAppSyncClient from 'aws-appsync';
 import { ApolloProvider } from 'react-apollo';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import PropTypes from 'prop-types';
 import configureStore from '../store';
 import config from '../aws-exports';
@@ -15,7 +15,8 @@ const client = new AWSAppSyncClient({
   region: config.aws_appsync_region,
   auth: {
     type: config.aws_appsync_authenticationType,
-    apiKey: config.aws_appsync_apiKey,
+    jwtToken: async () =>
+      (await Auth.currentSession()).getIdToken().getJwtToken(),
   },
 });
 
