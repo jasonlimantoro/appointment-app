@@ -67,6 +67,7 @@
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "no-underscore-dangle": 0,
     "no-shadow": 0,
+    "no-console": 2,
     "prefer-template": 0,
     "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
