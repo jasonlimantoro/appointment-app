@@ -1,0 +1,4 @@
+{
+    "AppSyncApiName": "appointment",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST"
+}
