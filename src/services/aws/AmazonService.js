@@ -16,8 +16,7 @@ export default class AWS extends BaseService {
 
   logout = async () => {
     try {
-      const res = await Auth.signOut();
-      console.log(res);
+      await Auth.signOut();
     } catch (e) {
       throw e;
     }

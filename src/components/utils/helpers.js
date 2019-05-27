@@ -55,3 +55,15 @@ export const transformErrorToString = error => {
   }
   return error;
 };
+
+/**
+ * Return the nested value of an object
+ * @param obj: Object
+ * @param fallback | null
+ * @returns {function(path: Array): any}
+ */
+export const getNestedObjectValue = (obj, fallback = null) => path => {
+  return path.reduce((accum, current) => {
+    return accum && accum[current] ? accum[current] : fallback;
+  }, obj);
+};

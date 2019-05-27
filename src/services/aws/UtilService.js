@@ -1,7 +1,12 @@
-class AmazonUtilService {
-  getSession = response => response.signInUserSession;
+import { getNestedObjectValue } from '../../components/utils/helpers';
 
-  getJWT = response => this.getSession(response).idToken.jwtToken;
+class AmazonUtilService {
+  getJWT = response =>
+    getNestedObjectValue(response)([
+      'signInUserSession',
+      'idToken',
+      'jwtToken',
+    ]);
 }
 
 export default AmazonUtilService;
