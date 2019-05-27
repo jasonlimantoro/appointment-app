@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
+import AWS from '../../services/aws';
 
 import { selectors } from '../../reducers/rootReducer';
 import { Input, Button, Typography } from '../../components';
@@ -24,7 +25,7 @@ const Login = ({ loginUser, isAuthenticated }) => {
       password: '',
     },
     onSubmit: async values => {
-      await loginUser(values);
+      await loginUser(values, AWS);
     },
     validate: values => {
       const formErrors = {};
