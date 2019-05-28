@@ -68,7 +68,10 @@ describe('Authentication', () => {
       }
       const expectedActions = [
         { type: userActions.actions.LOGIN_BEGIN },
-        { type: userActions.actions.LOGIN_FAILURE, payload: 'Unknown Error' },
+        {
+          type: userActions.actions.LOGIN_FAILURE,
+          payload: Error('Unknown Error'),
+        },
       ];
       const actual = store.getActions();
       expect(actual).toEqual(expectedActions);

@@ -46,7 +46,7 @@ export const loginUser = (
     saveUser(getState().users);
     navigate('/');
   } catch (e) {
-    dispatch({ type: actions.LOGIN_FAILURE, payload: e.message });
+    dispatch({ type: actions.LOGIN_FAILURE, payload: e });
     throw e;
   }
 };
