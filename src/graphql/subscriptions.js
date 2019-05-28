@@ -165,6 +165,7 @@ export const onCreateGuest = `subscription OnCreateGuest {
     id
     firstName
     lastName
+    email
     NIK
     company
   }
@@ -175,6 +176,7 @@ export const onUpdateGuest = `subscription OnUpdateGuest {
     id
     firstName
     lastName
+    email
     NIK
     company
   }
@@ -185,6 +187,7 @@ export const onDeleteGuest = `subscription OnDeleteGuest {
     id
     firstName
     lastName
+    email
     NIK
     company
   }

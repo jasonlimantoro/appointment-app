@@ -19,6 +19,7 @@ type Guest @model {
   id: ID!
   firstName: String!
   lastName: String!
+  email: String!
   NIK: String!
-  company: String
+  company: String!
 }

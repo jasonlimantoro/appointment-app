@@ -165,6 +165,7 @@ export const createGuest = `mutation CreateGuest($input: CreateGuestInput!) {
     id
     firstName
     lastName
+    email
     NIK
     company
   }
@@ -175,6 +176,7 @@ export const updateGuest = `mutation UpdateGuest($input: UpdateGuestInput!) {
     id
     firstName
     lastName
+    email
     NIK
     company
   }
@@ -185,6 +187,7 @@ export const deleteGuest = `mutation DeleteGuest($input: DeleteGuestInput!) {
     id
     firstName
     lastName
+    email
     NIK
     company
   }

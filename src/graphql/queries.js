@@ -115,6 +115,7 @@ export const getGuest = `query GetGuest($id: ID!) {
     id
     firstName
     lastName
+    email
     NIK
     company
   }
@@ -130,6 +131,7 @@ export const listGuests = `query ListGuests(
       id
       firstName
       lastName
+      email
       NIK
       company
     }
