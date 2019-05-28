@@ -53,13 +53,13 @@ module.exports = {
         test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
+          'css-loader',
           {
-            loader: 'css-loader',
+            loader: 'postcss-loader',
             options: {
-              sourceMap: false,
-              modules: true,
-              camelCase: true,
-              localIdentName: '[local]___[hash:base64:5]',
+              ident: 'postcss',
+              // eslint-disable-next-line global-require
+              plugins: [require('tailwindcss'), require('autoprefixer')],
             },
           },
           'sass-loader',
