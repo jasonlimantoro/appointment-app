@@ -70,6 +70,6 @@ export const logoutUser = (service = defaultService) => async dispatch => {
       type: actions.LOGOUT_SUCCESS,
     });
   } catch (e) {
-    dispatch({ type: actions.LOGOUT_FAILURE, payload: e.message });
+    dispatch({ type: actions.LOGOUT_FAILURE, payload: e });
   }
 };

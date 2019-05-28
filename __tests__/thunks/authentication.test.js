@@ -114,7 +114,7 @@ describe('Authentication', () => {
           { type: userActions.actions.LOGOUT_BEGIN },
           {
             type: userActions.actions.LOGOUT_FAILURE,
-            payload: 'Unknown Error',
+            payload: Error('Unknown Error'),
           },
         ];
         const actual = store.getActions();
