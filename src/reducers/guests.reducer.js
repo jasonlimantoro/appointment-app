@@ -1,7 +1,7 @@
 import { actions } from '../actions/guests.action';
 
 export const initialState = {
-  guests: [],
+  data: [],
   isFetching: false,
   fetched: false,
   error: {},
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
         ...state,
         isFetching: false,
         fetched: true,
-        guests: action.payload,
+        data: action.payload,
       };
     case actions.FETCH_GUEST_FAILURE:
       return {
@@ -33,3 +33,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export const selectData = state => state.data;
