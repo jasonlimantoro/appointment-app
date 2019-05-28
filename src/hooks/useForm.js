@@ -69,6 +69,9 @@ const useForm = ({ initialValues, onSubmit, validate, delay = 500 }) => {
 
   // validation on the fly
   useEffect(() => {
+    if (!validate) {
+      return;
+    }
     const errors = validate(state.values);
     dispatch({
       type: actions.SET_ERRORS,
@@ -95,6 +98,9 @@ const useForm = ({ initialValues, onSubmit, validate, delay = 500 }) => {
   };
   const handleSubmit = async e => {
     e.preventDefault();
+    if (!onSubmit) {
+      return;
+    }
     dispatch({
       type: actions.SUBMIT_BEGIN,
     });
