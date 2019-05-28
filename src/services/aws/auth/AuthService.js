@@ -1,5 +1,5 @@
 import { Auth } from 'aws-amplify';
-import BaseService from '../BaseService';
+import BaseService from '../../BaseService';
 
 export default class AWS extends BaseService {
   login = async ({ username, password }) => {

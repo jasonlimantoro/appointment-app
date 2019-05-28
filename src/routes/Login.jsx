@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
-import AWS from '../services/aws';
+import AWS from '../services/aws/auth';
 
 import { selectors } from '../reducers/rootReducer';
 import { Input, Button, Typography } from '../components';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import AWS from '../../../services/aws';
+import AuthService from '../../../services/aws/auth';
 import Button from '../../Button/Button';
 import { logoutUser } from '../../../actions/users.action';
 
@@ -15,7 +15,7 @@ const Header = ({ title, logoutUser }) => {
         <Button
           variant="transparentLight"
           className="text-sm"
-          onClick={() => logoutUser(AWS)}
+          onClick={() => logoutUser(AuthService)}
         >
           Logout
         </Button>

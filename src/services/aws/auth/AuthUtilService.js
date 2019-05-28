@@ -1,4 +1,4 @@
-import { getNestedObjectValue } from '../../components/utils/helpers';
+import { getNestedObjectValue } from '../../../components/utils/helpers';
 
 class AmazonUtilService {
   getJWT = response =>
