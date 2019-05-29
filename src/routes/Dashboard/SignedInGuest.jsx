@@ -5,9 +5,9 @@ import { compose } from 'recompose';
 
 import { fetchGuests } from '../../actions/guests.action';
 import { selectors } from '../../reducers/rootReducer';
-import { GuestService } from '../../services/aws/api';
+import Services from '../../services';
 
-const service = new GuestService({});
+const service = new Services.Guest[process.env.NODE_ENV]({});
 
 const SignedInGuest = ({ fetchGuests, data }) => {
   useEffect(() => {
