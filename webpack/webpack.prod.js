@@ -75,7 +75,7 @@ module.exports = {
       chunkFilename: `${commonPaths.cssFolder}/[name].css`,
     }),
     new webpack.EnvironmentPlugin({
-      DEBUG: true,
+      DEBUG: false,
       APP_STAGE: 'production',
     }),
   ],
