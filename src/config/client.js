@@ -1,6 +1,6 @@
 import AWSAppSyncClient from 'aws-appsync';
-import { Auth } from 'aws-amplify';
-import config from './aws-exports';
+import Amplify, { Auth } from 'aws-amplify';
+import config from '../aws-exports';
 
 const client = new AWSAppSyncClient({
   url: config.aws_appsync_graphqlEndpoint,
@@ -11,5 +11,7 @@ const client = new AWSAppSyncClient({
       (await Auth.currentSession()).getIdToken().getJwtToken(),
   },
 });
+
+Amplify.configure(config);
 
 export default client;

@@ -1,13 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ApolloProvider } from 'react-apollo';
-import Amplify from 'aws-amplify';
 import PropTypes from 'prop-types';
 import configureStore from '../store';
-import { awsConfig, client } from '../config';
+import { client } from '../config';
 import App from './App';
-
-Amplify.configure(awsConfig);
 
 const defaultStore = configureStore();
 
