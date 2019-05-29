@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env APP_STAGE=development webpack-dev-server --open",
+    "start:staging": "cross-env APP_STAGE=staging webpack-dev-server --open",
+    "build": "cross-env APP_STAGE=production webpack",
     "format": "prettier --write 'packages/**/*.js'",
     "lint": "eslint --fix src/**/**/**/**/*.js",
     "test": "jest --watchAll --coverage",

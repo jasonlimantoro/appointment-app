@@ -7,7 +7,7 @@ import { fetchGuests } from '../../actions/guests.action';
 import { selectors } from '../../reducers/rootReducer';
 import Services from '../../services';
 
-const service = new Services.Guest[process.env.NODE_ENV]({});
+const service = new Services.Guest[process.env.APP_STAGE]({});
 
 const SignedInGuest = ({ fetchGuests, data }) => {
   useEffect(() => {

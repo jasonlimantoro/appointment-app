@@ -18,8 +18,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
       DEBUG: true,
+      APP_STAGE: 'development',
     }),
   ],
 };
