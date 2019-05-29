@@ -13,7 +13,6 @@ module.exports = {
     contentBase: commonPaths.outputPath,
     compress: true,
     hot: true,
-    historyApiFallback: true,
   },
   devtool: 'source-map',
   plugins: [

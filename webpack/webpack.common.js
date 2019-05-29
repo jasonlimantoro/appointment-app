@@ -84,6 +84,9 @@ module.exports = {
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.css', '.scss'],
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
